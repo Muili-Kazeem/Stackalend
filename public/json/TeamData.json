@@ -1,0 +1,6 @@
+[
+  {"id":"0","name":"User 1","status":"Active","role":"Product Designer","email":"user1@example.com","teams":["Design"]},
+  {"id":"1","name":"User 2","status":"Inactive","role":"Manager","email":"user2@example.com","teams":["Design","Product","Marketing","Finance","Sales","Engineering"]},
+  {"id":"2","name":"User 3","status":"Active","role":"Engineer","email":"user3@example.com","teams":["Product","Marketing","Sales","Engineering"]},
+  {"id":"3","name":"User 4","status":"Active","role":"CTO","email":"user4@example.com","teams":["Marketing","Finance","Sales","Engineering"]}
+]

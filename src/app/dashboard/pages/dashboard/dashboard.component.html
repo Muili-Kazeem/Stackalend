@@ -1,0 +1,21 @@
+<!-- <section class="my-8 mb-10 flex gap-3">
+  <app-metric-card class="basis-auto flex-1"></app-metric-card>
+  <app-metric-card class="basis-auto flex-1"></app-metric-card>
+  <app-metric-card class="basis-auto flex-1"></app-metric-card>
+  <app-metric-card class="basis-auto flex-1"></app-metric-card>
+</section> -->
+
+<section class="my-8 mb-10 grid grid-cols-4 gap-8 items-stretch">
+  <app-metric-card></app-metric-card>
+  <app-metric-card></app-metric-card>
+  <app-metric-card></app-metric-card>
+  <app-metric-card></app-metric-card>
+
+  <app-mdg-card class="col-span-3 h-full"></app-mdg-card>
+
+  <app-revenue-contribution-card class="h-full"></app-revenue-contribution-card>
+
+  @if (teamMembers$ | async; as teamMembers) {
+    <app-team-member-table [teamMembers]="teamMembers" class="col-span-4"></app-team-member-table>
+  }
+</section>

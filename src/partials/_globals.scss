@@ -1,0 +1,60 @@
+@use "./variables";
+
+// Global stylings
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+input,
+input:focus-visible,
+input:focus,
+input::placeholder,
+input:placeholder-shown {
+  font-family: variables.$ff-primary;
+}
+
+html,
+body {
+  font-family: variables.$ff-primary;
+}
+
+::-webkit-scrollbar {
+  width: .5em;
+  height: .3em;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(227, 227, 227);
+  border-radius: 2rem;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: #000000 #171717;
+    scrollbar-width: thin;
+  }
+}

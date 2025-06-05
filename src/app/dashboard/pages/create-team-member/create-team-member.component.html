@@ -1,0 +1,80 @@
+<div class="max-h-full">
+  <div class="inline-flex items-center justify-center gap-2">
+    <span class="font-bold whitespace-nowrap">Create New Customer</span>
+  </div>
+
+  <form [formGroup]="newMemberForm">
+    <div class="flex gap-4 mb-4 w-full">
+      <div class="flex flex-col gap-2 w-full">
+        <label for="name" class="w-full">Name</label>
+        <input
+          id="name"
+          autocomplete="off"
+          formControlName="name"
+          type="text"
+          placeholder="Ciroma Chukwuma Adekunle"
+          class="w-full pl-4 pr-4 py-2 rounded-lg border border-lendaBorderGrey focus:outline-none focus:ring-1 focus:ring-lendaBlue/60 focus:border-lendaBlue shadow-sm"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2 w-full">
+        <label for="status" class="w-full">Status</label>
+        <input
+          id="status"
+          autocomplete="off"
+          formControlName="status"
+          type="text"
+          placeholder="Active, inactive, ...."
+          class="w-full pl-4 pr-4 py-2 rounded-lg border border-lendaBorderGrey focus:outline-none focus:ring-1 focus:ring-lendaBlue/60 focus:border-lendaBlue shadow-sm"
+        />
+      </div>
+    </div>
+
+    <div class="flex gap-4 mb-4">
+      <div class="flex flex-col gap-2 w-full">
+        <label for="role" class="w-full">Role</label>
+        <input
+          id="role"
+          autocomplete="off"
+          formControlName="role"
+          type="text"
+          placeholder="e.g Manager"
+          class="w-full pl-4 pr-4 py-2 rounded-lg border border-lendaBorderGrey focus:outline-none focus:ring-1 focus:ring-lendaBlue/60 focus:border-lendaBlue shadow-sm"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2 w-full">
+        <label for="email" class="w-full">Email</label>
+        <input
+          id="email"
+          autocomplete="off"
+          formControlName="email"
+          type="text"
+          placeholder="eg@example.com"
+          class="w-full pl-4 pr-4 py-2 rounded-lg border border-lendaBorderGrey focus:outline-none focus:ring-1 focus:ring-lendaBlue/60 focus:border-lendaBlue shadow-sm"
+        />
+      </div>
+    </div>
+
+    <div class="flex gap-4 mb-4">
+      <div class="flex flex-col gap-2 w-full">
+        <label for="teams" class="w-full">Team (Must be comma separated)</label>
+        <input
+          id="teams"
+          autocomplete="off"
+          formControlName="teams"
+          type="text"
+          placeholder="e.g Manager"
+          class="w-full pl-4 pr-4 py-2 rounded-lg border border-lendaBorderGrey focus:outline-none focus:ring-1 focus:ring-lendaBlue/60 focus:border-lendaBlue shadow-sm"
+        />
+      </div>
+    </div>
+  </form>
+
+  <button
+    class="cursor-pointer flex items-center gap-2 text-sm font-medium px-3 py-2 text-lendaWhite bg-lendaPurple border border-lendaBorderGrey rounded-lg"
+    (click)="createNewMember()"
+  >
+    Add
+  </button>
+</div>
