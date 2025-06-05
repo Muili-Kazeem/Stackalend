@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { ITeamMember } from '../models/team.model.';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class DashboardService {
   ) { }
 
   getAllTeamMembers(): Observable<ITeamMember[]> {
-    return this.getMembersFromStore() ?
+    return this.getMembersFromStore().length > 0 ?
       of(this.getMembersFromStore()) :
       this.http.get<ITeamMember[]>(this.url).pipe(
         tap((member) => {
@@ -35,6 +35,18 @@ export class DashboardService {
   getMembersFromStore(): ITeamMember[] {
     const data = localStorage.getItem('TEAM_MEMBER');
     return data ? JSON.parse(data) : [];
+  }
+
+  deleteUser(id: string): void {
+    this.getAllTeamMembers().pipe(
+      map((users) => {
+        return users.filter(user => user.id !== id);
+      })
+    ).subscribe(
+      (users) => {
+        this.saveMembers(users);
+      }
+    )
   }
 
   private saveMembers(member: ITeamMember[]): void {

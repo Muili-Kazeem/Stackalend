@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { StatusesEnum, TeamsEnum } from '../../models/status.model';
 import { ITeamMember } from '../../models/team.model.';
+import { DashboardService } from '../../data-access/dashboard.service';
 
 @Component({
   selector: 'app-team-member-table',
@@ -8,7 +9,11 @@ import { ITeamMember } from '../../models/team.model.';
   templateUrl: './team-member-table.component.html',
   styleUrl: './team-member-table.component.scss'
 })
-export class TeamMemberTableComponent {
+export class TeamMemberTableComponent implements OnInit {
+
+  ngOnInit(): void { }
+
+  private _dashboard = inject(DashboardService);
 
   @Input() teamMembers!: ITeamMember[];
   statuses = StatusesEnum;
@@ -48,12 +53,13 @@ export class TeamMemberTableComponent {
     }
   }
 
-  deleteUser(user: any) {
+  deleteUser(user: ITeamMember) {
     this.teamMembers = this.teamMembers.filter(u => u !== user);
     if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
+    this._dashboard.deleteUser(user.id)
   }
 
-  editUser(user: any) {
-    console.log('Edit user:', user);
-  }
+  // editUser(user: ITeamMember) {
+  //   console.log('Edit user:', user);
+  // }
 }

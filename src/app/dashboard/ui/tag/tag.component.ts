@@ -15,7 +15,7 @@ export class TagComponent {
 
 
   getTagClass(title: string) {
-    switch (title.toLowerCase()) {
+    switch (title.trim().toLowerCase()) {
       case this.statuses.active:
         return 'bg-lendaActiveStatusBg text-lendaActiveStatusText';
       case this.statuses.inactive:

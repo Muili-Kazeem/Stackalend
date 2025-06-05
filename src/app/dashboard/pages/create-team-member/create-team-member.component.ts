@@ -37,6 +37,7 @@ export class CreateTeamMemberComponent implements OnInit {
 
   createNewMember() {
     this.newMemberData = { ...this.newMemberForm.value };
+    this.newMemberData.teams = this.newMemberForm.value.teams.split(',');
     this._dashboard.createNewMember(this.newMemberData);
     this.router.navigate(['/dashboard', 'home']);
   }
