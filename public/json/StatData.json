@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Total Revenue",
+    "present_amount": 12000000,
+    "last_amount": 14000000
+  },
+  {
+    "title": "Active Users",
+    "present_amount": 37892,
+    "last_amount": 4829
+  },
+  {
+    "title": "Conversion Rate",
+    "present_amount": 272839,
+    "last_amount": 398932
+  },
+  {
+    "title": "New Signups",
+    "present_amount": 8200,
+    "last_amount": 450
+  }
+]

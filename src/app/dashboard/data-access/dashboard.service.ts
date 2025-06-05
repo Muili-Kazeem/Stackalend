@@ -8,16 +8,21 @@ import { ITeamMember } from '../models/team.model.';
 })
 export class DashboardService {
 
-  url: string = 'json/TeamData.json';
+  teamUrl = 'json/TeamData.json';
+  statUrl = 'json/StatData.json';
 
   constructor(
     private http: HttpClient,
   ) { }
 
+  getStatData(): Observable<[]> {
+    return this.http.get<[]>(this.statUrl);
+  }
+
   getAllTeamMembers(): Observable<ITeamMember[]> {
     return this.getMembersFromStore().length > 0 ?
       of(this.getMembersFromStore()) :
-      this.http.get<ITeamMember[]>(this.url).pipe(
+      this.http.get<ITeamMember[]>(this.teamUrl).pipe(
         tap((member) => {
           this.clearStorage();
           this.saveMembers(member);

@@ -12,7 +12,6 @@ export class DashboardComponent {
 
   private _dashboard = inject(DashboardService);
 
-  teamMembers$ = this._dashboard.getAllTeamMembers().pipe(
-    tap((teamMembers) => { })
-  )
+  statData$ = this._dashboard.getStatData();
+  teamMembers$ = this._dashboard.getAllTeamMembers();
 }

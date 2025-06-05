@@ -1,8 +1,9 @@
 <section class="my-8 mb-10 grid grid-cols-4 gap-8 items-stretch">
-  <app-metric-card></app-metric-card>
-  <app-metric-card></app-metric-card>
-  <app-metric-card></app-metric-card>
-  <app-metric-card></app-metric-card>
+  @if (statData$ | async; as stat) {
+    @for (item of stat; track $index) {
+      <app-metric-card [stat]="item" ></app-metric-card>
+    }
+  }
 
   <app-mdg-card class="col-span-3 h-full"></app-mdg-card>
 

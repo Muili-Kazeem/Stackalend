@@ -10,7 +10,7 @@ export interface ITeamMember {
 export interface ITeamMemberResponse {
   status: string | null;
   message: string | null;
-  data: ITeamMember
+  data: ITeamMember;
 }
 
 export interface IPagination {
@@ -25,4 +25,10 @@ export interface IPagination {
     prev: string;
     next: string;
   }
+}
+
+export interface IStatData {
+  title: string;
+  present_amount: number;
+  last_amount: number;
 }
