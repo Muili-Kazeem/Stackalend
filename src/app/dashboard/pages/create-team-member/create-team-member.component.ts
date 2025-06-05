@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITeamMember } from '../../models/team.model.';
 import { DashboardService } from '../../data-access/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-team-member',
@@ -17,6 +18,7 @@ export class CreateTeamMemberComponent implements OnInit {
   constructor(
     private _dashboard: DashboardService,
     private fb: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class CreateTeamMemberComponent implements OnInit {
 
   createNewMember() {
     this.newMemberData = { ...this.newMemberForm.value };
-    console.log(this.newMemberData);
     this._dashboard.createNewMember(this.newMemberData);
+    this.router.navigate(['/dashboard', 'home']);
   }
 }
