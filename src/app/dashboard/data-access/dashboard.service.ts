@@ -18,7 +18,7 @@ export class DashboardService {
   getStatData(): Observable<[]> {
     return this.http.get<[]>(this.statUrl);
   }
-  
+
 
   getAllTeamMembers(): Observable<ITeamMember[]> {
     return this.getMembersFromStore().length > 0 ?
@@ -53,6 +53,7 @@ export class DashboardService {
     )
   }
 
+  
   updateUser(teamMember: ITeamMember): void {
     this.getAllTeamMembers().pipe(
       map((members) => {
