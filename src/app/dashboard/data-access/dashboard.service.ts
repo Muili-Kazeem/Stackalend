@@ -19,7 +19,6 @@ export class DashboardService {
     return this.http.get<[]>(this.statUrl);
   }
 
-
   getAllTeamMembers(): Observable<ITeamMember[]> {
     return this.getMembersFromStore().length > 0 ?
       of(this.getMembersFromStore()) :
@@ -38,12 +37,10 @@ export class DashboardService {
     this.saveMembers(members);
   }
 
-
   getMembersFromStore(): ITeamMember[] {
     const data = localStorage.getItem('TEAM_MEMBER');
     return data ? JSON.parse(data) : [];
   }
-
 
   getMember(id: string) {
     return this.getAllTeamMembers().pipe(
@@ -52,7 +49,6 @@ export class DashboardService {
       })
     )
   }
-
 
   updateUser(teamMember: ITeamMember): void {
     this.getAllTeamMembers().pipe(
@@ -66,7 +62,6 @@ export class DashboardService {
       })
     )
   }
-
 
   deleteUser(id: string): void {
     this.getAllTeamMembers().pipe(
@@ -83,7 +78,6 @@ export class DashboardService {
   private saveMembers(member: ITeamMember[]): void {
     localStorage.setItem('TEAM_MEMBER', JSON.stringify(member));
   }
-  
 
   private clearStorage(): void {
     localStorage.removeItem('TEAM_MEMBER');
