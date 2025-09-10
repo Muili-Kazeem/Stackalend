@@ -30,12 +30,12 @@ export class MdgCardComponent implements OnInit, OnDestroy {
       },
       series: [
         {
-          name: 'Revenue ($)',
+          name: 'Revenue',
           type: 'column',
           data: this.chartData.revenue
         },
         {
-          name: 'Active Users (K)',
+          name: 'Active Users',
           type: 'column',
           data: this.chartData.activeUsers
         }
@@ -57,13 +57,13 @@ export class MdgCardComponent implements OnInit, OnDestroy {
       yaxis: [
         {
           title: {
-            text: 'Revenue ($)'
+            text: 'Revenue'
           }
         },
         {
           opposite: true,
           title: {
-            text: 'Active Users (K)'
+            text: 'Active Users'
           }
         }
       ]

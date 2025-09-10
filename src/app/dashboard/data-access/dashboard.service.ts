@@ -42,6 +42,28 @@ export class DashboardService {
     return data ? JSON.parse(data) : [];
   }
 
+  
+  getMember(id: string) {
+    return this.getAllTeamMembers().pipe(
+      map((members) => {
+        return members.find(u => u.id === id) ?? "";
+      })
+    )
+  }
+
+  updateUser(teamMember: ITeamMember): void {
+    this.getAllTeamMembers().pipe(
+      map((members) => {
+        return [teamMember, ...members.filter(member => member.id !== teamMember.id)];
+        // return members.map(member =>
+        //   member.id === teamMember.id ? teamMember : member)
+      }),
+      tap((members) => {
+        this.saveMembers(members);
+      })
+    )
+  }
+
   deleteUser(id: string): void {
     this.getAllTeamMembers().pipe(
       map((users) => {

@@ -21,6 +21,10 @@ const routes: Routes = [
       {
         path: 'new',
         component: CreateTeamMemberComponent
+      },
+      {
+        path: ':id/edit',
+        component: CreateTeamMemberComponent
       }
     ]
   },
