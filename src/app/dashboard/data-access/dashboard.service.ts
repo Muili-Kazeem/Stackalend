@@ -37,12 +37,13 @@ export class DashboardService {
     this.saveMembers(members);
   }
 
+  
   getMembersFromStore(): ITeamMember[] {
     const data = localStorage.getItem('TEAM_MEMBER');
     return data ? JSON.parse(data) : [];
   }
 
-  
+
   getMember(id: string) {
     return this.getAllTeamMembers().pipe(
       map((members) => {
