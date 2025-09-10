@@ -53,7 +53,7 @@ export class DashboardService {
     )
   }
 
-  
+
   updateUser(teamMember: ITeamMember): void {
     this.getAllTeamMembers().pipe(
       map((members) => {
@@ -67,6 +67,7 @@ export class DashboardService {
     )
   }
 
+  
   deleteUser(id: string): void {
     this.getAllTeamMembers().pipe(
       map((users) => {
