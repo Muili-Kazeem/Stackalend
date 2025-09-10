@@ -18,6 +18,7 @@ export class DashboardService {
   getStatData(): Observable<[]> {
     return this.http.get<[]>(this.statUrl);
   }
+  
 
   getAllTeamMembers(): Observable<ITeamMember[]> {
     return this.getMembersFromStore().length > 0 ?
@@ -37,7 +38,7 @@ export class DashboardService {
     this.saveMembers(members);
   }
 
-  
+
   getMembersFromStore(): ITeamMember[] {
     const data = localStorage.getItem('TEAM_MEMBER');
     return data ? JSON.parse(data) : [];
